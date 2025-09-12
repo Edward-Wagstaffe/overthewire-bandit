@@ -10,5 +10,15 @@
 
 ## Steps
 ```bash
-ssh bandit0@bandit.labs.overthewire.org -p 2220
+ssh bandit.labs.overthewire.org -p 2220 -l bandit0
+```
+```
+
+Pasword: bandit0
+
+Login successful -> next level unlocked.
+
+Notes:
+Learned basic SSH login with custom port.
+Opting to use the command above over:
 
