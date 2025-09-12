@@ -2,7 +2,7 @@
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit2`
-- **Password:** `ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If`
+- **Password:** `263JGJPfgU6LtdEvgfWU1XP5yac29mFx`
 
 ---
 
@@ -17,22 +17,26 @@ ls
 
 Read the file containing the flag:
 ```bash
-cat 
+cat ./--spaces\ in\ this\ filename--
+```
+Or
+```bash
+cat ./"--spaces in this filename"
 ```
 
 ## Flag 
 ```bash
-263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 ```
 
 
 ## Notes
-- Learned to list files using `ls`.
-- Learned to read a file using `cat`.
-- Learned that `-` is a special character in Linux, usually used for command options.
-- To access a file or directory named `-`, you must explicitly use `./-`, where `./` means “current directory".
+- Learned that `--` is also special character in Linux, used for command options/arguments.
+- To access a file or directory beginning with `--`, use the same logic as level 2: e.g. `./--filename`.
+- Files with spaces must be referenced using `\` or quotes, e.g. `file \name` or `"file name"`
+- Practiced handling filenames with special characters and spaces.
 
 
 <p align="center">
-<a href="level-3.md">Next Level → Level 3</a>
+<a href="level-4.md">Next Level → Level 4</a>
 </p>
