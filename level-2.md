@@ -2,32 +2,33 @@
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit1`
-- **Password:** ``
+- **Password:** `ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If`
 
 ---
 
 ## Task 
-The goal of this level is to **read a file in the home directory** using basic linux commands. 
+The goal of this level is to **read a file called `-` in the home directory** using basic linux commands. 
 
 ## Steps
-Read the file containing the flag:
+List Files:
 ```bash
-cat readme
+ls
 ```
 
-Exit the session:
+Read the file containing the flag:
 ```bash
-exit 
+cat ./-
 ```
 
 ## Flag 
 ```bash
-ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
 ```
 
 
 ## Notes
 Learned to read a file using `cat`.
+Learned that `-` is a special character in Linux, usually used for command options; to access a file or directory named `-`, you must explicitly use `./-`, where `./` means “current directory.
 
 
 <p align="center">
