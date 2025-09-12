@@ -3,8 +3,8 @@
 ## Info
 - **Host:** bandit.labs.overthewire.org  
 - **Port:** 2220  
-- **User:** bandit0  
-- **Pass:** bandit0  
+- **Username:** bandit0  
+- **Password:** bandit0  
 
 ---
 
@@ -20,4 +20,4 @@ Since this task was only to log in, this concludes level 0.
 ## Notes:
 Learned basic SSH login with custom port.
 
-*Next Level*: [Level 1](https://overthewire.org/wargames/bandit/bandit1.html)
+*Next Level*: [Level 1](level-1.md)

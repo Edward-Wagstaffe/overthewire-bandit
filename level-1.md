@@ -1,8 +1,13 @@
 # [Bandit Level 1](https://overthewire.org/wargames/bandit/bandit1.html)
 
 ## Login Info
-- **SSH:** bandit.labs.overthewire.org  
-- **Pass:** bandit0
+- **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit0`
+- **Password:** `bandit0`
+
+---
+
+## Task 
+The password for the next level is stored in a file called ***readme*** located in the home directory.
 
 ---
 
