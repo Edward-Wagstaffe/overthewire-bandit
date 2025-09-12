@@ -7,7 +7,7 @@
 ---
 
 ## Task 
-The password for the next level is stored in a file called ***readme*** located in the home directory.
+The goal of this level is to **read a file in the home directory** using basic linux commands. 
 
 ---
 
@@ -15,6 +15,11 @@ The password for the next level is stored in a file called ***readme*** located 
 Read the file containing the flag:
 ```bash
 cat readme
+```
+
+Exit the session:
+```bash
+exit 
 ```
 
 ---
@@ -25,9 +30,8 @@ ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 ```
 
 
-
 ## Notes:
 Learned to read a file using `cat`.
 
 
-*Next Level*: [Level 2](https://overthewire.org/wargames/bandit/bandit2.html)
+*Next Level*: [Level 2](level-2.md)
