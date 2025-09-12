@@ -27,6 +27,7 @@ cat ./-
 
 
 ## Notes
+- Learned to list files using `ls`.
 - Learned to read a file using `cat`.
 - Learned that `-` is a special character in Linux, usually used for command options.
 - To access a file or directory named `-`, you must explicitly use `./-`, where `./` means “current directory.
