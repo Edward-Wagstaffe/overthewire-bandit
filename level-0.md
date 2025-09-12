@@ -21,7 +21,7 @@ After entering the password `bandit0`, you will be logged into the server.
 
 Since this task was only to log in, this concludes level 0.
 
-## Notes:
+## Notes
 Learned basic SSH login with custom port.
 
 

@@ -9,8 +9,6 @@
 ## Task 
 The goal of this level is to **read a file in the home directory** using basic linux commands. 
 
----
-
 ## Steps
 Read the file containing the flag:
 ```bash
@@ -22,15 +20,13 @@ Exit the session:
 exit 
 ```
 
----
-
 ## Flag 
 ```bash
 ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 ```
 
 
-## Notes:
+## Notes
 Learned to read a file using `cat`.
 
 
