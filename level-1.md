@@ -27,7 +27,7 @@ ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 
 
 ## Notes
-Learned to read a file using `cat`.
+Learned to read a file using `cat` and to disconnect from a ssh session with `exit`.
 
 
 <p align="center">
