@@ -24,4 +24,7 @@ Since this task was only to log in, this concludes level 0.
 ## Notes:
 Learned basic SSH login with custom port.
 
-*Next Level*: [Level 1](level-1.md)
+
+<p align="center">
+<a href="level-1.md">Next Level → Level 1</a>
+</p>

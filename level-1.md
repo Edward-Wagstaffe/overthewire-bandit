@@ -34,4 +34,7 @@ ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 Learned to read a file using `cat`.
 
 
-*Next Level*: [Level 2](level-2.md)
+<p align="center">
+<a href="level-2.md">Next Level → Level 2</a>
+</p>
+
