@@ -32,7 +32,7 @@ MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 
 ## Notes
 - Learned that `--` is also special character in Linux, used for command options/arguments.
-- To access a file or directory beginning with `--`, use the same logic as level 2: e.g. `./--filename`.
+- To access a file or directory beginning with `--`, use the same logic as level 2, e.g. `./--filename`.
 - Files with spaces must be referenced using `\` or quotes, e.g. `file \name` or `"file name"`
 - Practiced handling filenames with special characters and spaces.
 
