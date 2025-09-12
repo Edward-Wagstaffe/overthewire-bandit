@@ -9,7 +9,7 @@
 ---
 
 ## Task 
-The goal is to log in to the server via SSH using a **terminal / command prompt and understand the basic workflow of connecting to a remove machine.
+The goal is to log in to the server via SSH using a **terminal / command prompt** and understand the basic workflow of connecting to a remove machine.
 
 ## Steps
 Connect via SSH in your terminal or command prompt:
