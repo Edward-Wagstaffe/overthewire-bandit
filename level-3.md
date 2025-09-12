@@ -1,1 +1,38 @@
+# [Bandit Level 3](https://overthewire.org/wargames/bandit/bandit3.html)
 
+## Login Info
+- **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit2`
+- **Password:** `ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If`
+
+---
+
+## Task 
+The goal of this level is to **read a file called `--spaces in this filename--` in the home directory** using basic linux commands. 
+
+## Steps
+List Files:
+```bash
+ls
+```
+
+Read the file containing the flag:
+```bash
+cat 
+```
+
+## Flag 
+```bash
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+```
+
+
+## Notes
+- Learned to list files using `ls`.
+- Learned to read a file using `cat`.
+- Learned that `-` is a special character in Linux, usually used for command options.
+- To access a file or directory named `-`, you must explicitly use `./-`, where `./` means “current directory".
+
+
+<p align="center">
+<a href="level-3.md">Next Level → Level 3</a>
+</p>
