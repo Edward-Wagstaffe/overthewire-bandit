@@ -21,7 +21,7 @@ cat ./--spaces\ in\ this\ filename--
 ```
 Or
 ```bash
-cat ./"--spaces in this filename"
+cat ./"--spaces in this filename--"
 ```
 
 ## Flag 
