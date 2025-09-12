@@ -19,6 +19,7 @@ List all files (including hidden):
 ls -a
 ```
 There is a hidden file called `...Hiding-From-You`  
+  
 Read the hidden file:
 ```bash
 cat ...Hiding-From-You
