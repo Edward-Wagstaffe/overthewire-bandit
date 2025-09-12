@@ -19,5 +19,8 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 ## Levels
 - [Level 0](level-0.md) - Basic SSH login
 - [Level 1](level-1.md) - Read a file using 'cat'
+- [Level 2](level-2.md) - Handling special filename `-`
+- [Level 3](level-3.md) - Files with `--` and spaces
+- [Level 4](level-4.md) - TODO
 
 
