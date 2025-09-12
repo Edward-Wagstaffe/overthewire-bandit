@@ -19,14 +19,3 @@ Login successful -> next level unlocked
 
 ## Notes:
 Learned basic SSH login with custom port.
-Opted to use the login above as opposed to:
-```bash
-ssh bandit0@bandit.labs.overthewire.org -p 2220
-```
-
-```
-```
-```
-```
-```
-```
