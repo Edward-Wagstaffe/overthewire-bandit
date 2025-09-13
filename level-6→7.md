@@ -79,8 +79,8 @@ An example from our `ls -la` output:
 ```bash
 drwxr-xr-x    2 root root   4096 Aug 15 13:16 behemoth
 ```
-`root` is the user owner.
-`root` is the group owner.
+- `root` is the user owner.
+- `root` is the group owner.
 
 We are looking for a file that has `bandit7` as user owner, `bandit6` as group owner and has a size of 33 bytes.
 
