@@ -1,8 +1,8 @@
 <p align="center">
-<a href="level-2.md">Previous Level → Level 2</a>
+<a href="level-1→2.md">Previous Level: Level 1→2</a>
 </p>
 
-# [Bandit Level 3](https://overthewire.org/wargames/bandit/bandit3.html)
+# [Bandit Level 2 → 3](https://overthewire.org/wargames/bandit/bandit3.html)
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit2`
@@ -42,5 +42,5 @@ MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 
 
 <p align="center">
-<a href="level-4.md">Next Level → Level 4</a>
+<a href="level-3→4.md">Next Level: Level 3 → 4</a>
 </p>
