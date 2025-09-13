@@ -12,23 +12,10 @@
 
 ## Task 
 The goal of this level is to find a file with the following properties:
-- owned by user bandit7
-- owned by group bandit6
-- 33 bytes in size
+- human-readable
+- 1033 bytes in size
+- not executable
 
-## Theory
-This level introduces the concept of file ownership.
-Each person in Linux is a **user**, and each user has a unique UID(User ID) e.g. root, john, bandit4, etc.
-A **group** is a collection of users, each user belongs to a **primary group** and **secondary groups** e.g. `john` is in group `dev`. Files owned by group `dev` can be shared by all developers.
-Every file has two owners:
-- User owner -> the user who owns the file.
-- Group owner -> the group that owns the file.
-Using `ls -l`:
-```bash
--rw-r--r-- 1 john dev 1200 Sep 13 10:00 notes.txt
-```
-`john` is the user owner.
-`dev` is the group owner.
 
 ## Steps
 Change current directory to `inhere`:
@@ -86,46 +73,39 @@ drwxr-x--- 22 root bandit5 4096 Aug 15 13:16 ..
 We could brute force print each file one by one until we find the flag but of course this is incredibly inefficient. 
 If only there were a way to search for the file based on properties we were given...
 
-The `find` command is used to search for files and directories based on specific criteria.
-It just so happens that find has an option for each of them:
-- `-user <username>`, finds files owned by a specific user.
-- `-group <groupname>`, finds files belonging to a specific group.
-- `-size +10M`, finds files greater than 10MB
-- `-size -1k`, finds files smaller than 1kb.
-- `-size 33c`, finds files that are exactly 33 bytes.  
+The `find` command is used to search for files and directories based on specific criteria.  
+- `-type f`, limits results to regular files.
+- `-executable`, matches executable files, but we want non-executable files so we can negate the condition with `!`, leaving us with `! -executable`
+- `-size 1033c`, lets us specify file size with units, `c` stands for bytes.    
+
+
+Now `find` does not have an option to find human readable files, we can combine `find` with `file` which we have seen in [level 5](level-5.md) by using `-exec file {} \;`.
+- `-exec`, runs a command on each file that find locates.
+- `{}`, placeholder for the current file found by `find`.
+- `\;`, indicates the end of the command.
+
+The pipe `|` in Linux is a way to send the output of one command as input to another command. This lets us chain commands together.
+`| grep "ASCII text"`, only shows us files that are human-readable.
+
 Putting it all together:
 ```bash
-find . -user bandit7 -group bandit6 -size 33c
+find ./ -type f ! -executable -size 1033c -exec file {} \; | grep "ASCII text"
 ```
-
-
 ```bash
-file ./-*
-```
-Output:
-```bash
-bandit4@bandit:~/inhere$ file ./*
-./-file00: Non-ISO extended-ASCII text, with no line terminators, with overstriking
-./-file01: data
-./-file02: data
-./-file03: data
-./-file04: data
-./-file05: data
-./-file06: data
-./-file07: ASCII text
-./-file08: data
-./-file09: data
+bandit5@bandit:~/inhere$ find ./ -type f ! -executable -size 1033c -exec file {} \; | grep "ASCII text"
+./maybehere07/.file2: ASCII text, with very long lines (1000)
 ```
   
-We can see that file -file07 is the only one of type 'ASCII', which is indeed human readable.  
-Read -file07 and obtain the flag:
+We can see that file `.file2` in the `maybehere07` directory matches the criteria.
+
+Read .file2 and obtain the flag:
 ```bash
-cat ./-file07
+cat ./maybehere07/.file2
 ```
 
 ## Flag 
 ```bash
-4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 ```
 
 
