@@ -26,5 +26,5 @@ Learned basic SSH login with custom port.
 
 
 <p align="center">
-<a href="level-1.md">Next Level: Level 0 → 1</a>
+<a href="level-0→1.md">Next Level: Level 0 → 1</a>
 </p>
