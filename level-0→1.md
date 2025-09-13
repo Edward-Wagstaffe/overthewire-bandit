@@ -35,6 +35,6 @@ Learned to read a file using `cat` and to logout with `exit`.
 
 
 <p align="center">
-<a href="level-1 → 2.md">Next Level: Level 1 → 2</a>
+<a href="level-1→2.md">Next Level: Level 1 → 2</a>
 </p>
 
