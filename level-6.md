@@ -71,7 +71,6 @@ drwxr-x--- 22 root bandit5 4096 Aug 15 13:16 ..
 -rwxr-x---  1 root bandit5 1915 Aug 15 13:16 spaces file3
 ```
 We could brute force print each file one by one until we find the flag but of course this is incredibly inefficient.   
-If only there were a way to search for the file based on properties we were given...
 
 The `find` command is used to search for files and directories based on specific criteria.  
 - `-type f`, limits results to regular files.
