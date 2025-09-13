@@ -72,8 +72,8 @@ This level introduces the concept of file ownership.
 Each person in Linux is a **user**, and each user has a unique UID(User ID) e.g. root, john, bandit4, etc.
 A **group** is a collection of users, each user belongs to a **primary group** and **secondary groups** e.g. `john` is in group `dev`. Files owned by group `dev` can be shared by all developers.
 Every file has two owners:
-- User owner -> the user who owns the file.
-- Group owner -> the group that owns the file.
+- User owner → the user who owns the file.
+- Group owner → the group that owns the file.
 
 An example from our `ls -la` output:
 ```bash
