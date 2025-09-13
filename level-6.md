@@ -116,5 +116,5 @@ HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 
 
 <p align="center">
-<a href="level-6.md">Next Level → Level 6</a>
+<a href="level-7.md">Next Level: Level 6 → 7</a>
 </p>
