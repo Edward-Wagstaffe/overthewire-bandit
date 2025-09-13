@@ -53,7 +53,7 @@ drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere17
 drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere18
 drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere19
 ```
-Each of these directories has a multitude of files.
+Each of these directories has a multitude of files.    
 Take `maybehere00` for instance:
 ```bash
 bandit5@bandit:~/inhere$ ls -la maybehere00  
