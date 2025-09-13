@@ -45,7 +45,9 @@ Applying the techniques learned in [level 2](level-2.md) to correctly reference 
 ```bash
 file ./-*
 ```
+Output:
 ```bash
+bandit4@bandit:~/inhere$ file ./*
 ./-file00: Non-ISO extended-ASCII text, with no line terminators, with overstriking
 ./-file01: data
 ./-file02: data
@@ -58,7 +60,7 @@ file ./-*
 ./-file09: data
 ```
   
-We can see that file -file07 is the only one of type 'ASCII', which is indeed human readable.
+We can see that file -file07 is the only one of type 'ASCII', which is indeed human readable.  
 Read -file07 and obtain the flag:
 ```bash
 cat ./-file07
