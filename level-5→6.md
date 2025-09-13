@@ -11,7 +11,7 @@
 ---
 
 ## Task 
-The goal of this level is to find a file with the following properties:
+The goal of this level is to find a file within inhere directory with the following properties:
 - human-readable
 - 1033 bytes in size
 - not executable
