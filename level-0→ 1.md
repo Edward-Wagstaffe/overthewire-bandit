@@ -1,8 +1,8 @@
 <p align="center">
-<a href="level-0.md">Previous Level → Level 0</a>
+<a href="level-0.md">Previous Level: Level 0</a>
 </p>
 
-# [Bandit Level 1](https://overthewire.org/wargames/bandit/bandit1.html)
+# [Bandit Level 0 → 1](https://overthewire.org/wargames/bandit/bandit1.html)
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit0`
@@ -35,6 +35,6 @@ Learned to read a file using `cat` and to logout with `exit`.
 
 
 <p align="center">
-<a href="level-2.md">Next Level → Level 2</a>
+<a href="level-1 → 2.md">Next Level: Level 1 → 2</a>
 </p>
 
