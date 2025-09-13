@@ -6,12 +6,12 @@
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit6`
-- **Password:** `4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw`
+- **Password:** `HWasnPhtq9AVKe0dmk45nxy20cvUa6EG`
 
 ---
 
 ## Task 
-The goal of this level is to find a file with the following properties:
+The goal of this level is to find a file on the **server** with the following properties:
 - owned by user bandit7
 - owned by group bandit6
 - 33 bytes in size
