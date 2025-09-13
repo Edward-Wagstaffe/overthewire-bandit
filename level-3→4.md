@@ -1,5 +1,5 @@
 <p align="center">
-<a href="level-2→3.md">Previous Level: Level 2→3</a>
+<a href="level-2→3.md">Previous Level: Level 2 → 3</a>
 </p>
 
 # [Bandit Level 3 → 4](https://overthewire.org/wargames/bandit/bandit4.html)
