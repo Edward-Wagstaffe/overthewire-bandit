@@ -68,8 +68,8 @@ drwxr-xr-x   14 root root   4096 Aug 20 16:10 var
 drwxr-xr-x    2 root root   4096 Aug 15 13:19 vortex
 ```
 
-This level introduces the concept of file ownership.
-Each person in Linux is a **user**, and each user has a unique UID(User ID) e.g. root, john, bandit4, etc.
+This level introduces the concept of file ownership.    
+Each person in Linux is a **user**, and each user has a unique UID(User ID) e.g. root, john, bandit4, etc.    
 A **group** is a collection of users, each user belongs to a **primary group** and **secondary groups** e.g. `john` is in group `dev`. Files owned by group `dev` can be shared by all developers.
 Every file has two owners:
 - User owner → the user who owns the file.
