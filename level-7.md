@@ -1,11 +1,11 @@
 <p align="center">
-<a href="level-5.md">Previous Level → Level 5</a>
+<a href="level-6→7.md">Previous Level: Level 6 → 7</a>
 </p>
 
-# [Bandit Level 6](https://overthewire.org/wargames/bandit/bandit6.html)
+# [Bandit Level 6 → 7](https://overthewire.org/wargames/bandit/bandit7.html)
 
 ## Login Info
-- **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit5`
+- **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit6`
 - **Password:** `4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw`
 
 ---
@@ -136,5 +136,5 @@ cat ./-file07
 
 
 <p align="center">
-<a href="level-6.md">Next Level → Level 6</a>
+<a href="level-7→8.md">Next Level: Level 7 → 8</a>
 </p>
