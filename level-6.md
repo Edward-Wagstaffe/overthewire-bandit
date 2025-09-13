@@ -74,11 +74,11 @@ We could brute force print each file one by one until we find the flag but of co
 
 The `find` command is used to search for files and directories based on specific criteria.  
 - `-type f`, limits results to regular files.
-- `-executable`, matches executable files, but we want non-executable files so we can negate the condition with `!`, leaving us with `! -executable`
+- `-executable`, matches executable files, but we want non-executable files so we can negate the condition with `!`, leaving us with `! -executable`.
 - `-size 1033c`, lets us specify file size with units, `c` stands for bytes.    
 
 
-Now `find` does not have an option to find human readable files, we can combine `find` with `file` which we have seen in [level 5](level-5.md) by using `-exec file {} \;`.
+Now `find` does not have an option to find human readable files, we can combine `find` with `file` by using `-exec file {} \;`.
 - `-exec`, runs a command on each file that find locates.
 - `{}`, placeholder for the current file found by `find`.
 - `\;`, indicates the end of the command.
