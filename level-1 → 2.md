@@ -2,7 +2,7 @@
 <a href="level-0 → 1.md">Previous Level: Level 0 → 1</a>
 </p>
 
-# [Bandit Level 2](https://overthewire.org/wargames/bandit/bandit2.html)
+# [Bandit Level 1 → 2](https://overthewire.org/wargames/bandit/bandit2.html)
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit1`
