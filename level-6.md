@@ -1,8 +1,8 @@
 <p align="center">
-<a href="level-5.md">Previous Level → Level 5</a>
+<a href="level-5.md">Previous Level → Level 4->5</a>
 </p>
 
-# [Bandit Level 6](https://overthewire.org/wargames/bandit/bandit6.html)
+# [Bandit Level 5->6](https://overthewire.org/wargames/bandit/bandit6.html)
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit5`
@@ -109,8 +109,9 @@ HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 
 
 ## Notes
-- The `file` command identifies the type of a file based on its contents, not just its name.
-- The `*` wildcard matches zero or more characters in filenames, useful for pattern matching. 
+- The `find` command searches for files and directories recursively based on criteria like name, type, size, etc.
+- Pipe `|` sends the output of one comand as input to another command for further processing.
+- `grep`, filters input to show only lines that match the pattern / text.
 
 
 
