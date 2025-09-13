@@ -1,3 +1,7 @@
+<p align="center">
+<a href="level-3.md">Previous Level → Level 3</a>
+</p>
+
 # [Bandit Level 4](https://overthewire.org/wargames/bandit/bandit4.html)
 
 ## Login Info
