@@ -23,5 +23,7 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 2 → 3](level-2→3.md) - Files with `--` and spaces
 - [Level 3 → 4](level-3→4.md) - Hidden files
 - [Level 4 → 5](level-4→5.md) - Using `file` and wildcards `*`
-- [Level 5 → 6](level-5→6.md) - File 
+- [Level 5 → 6](level-5→6.md) - Using `find`, piping and grep
+- [Level 6 → 7](level-6→7.md) - File ownership and the black hole
+- [Level 7 → 8](level-7→8.md) - TODO
 
