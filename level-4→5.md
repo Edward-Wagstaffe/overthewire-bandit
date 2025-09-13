@@ -1,5 +1,5 @@
 <p align="center">
-<a href="level-4.md">Previous Level → Level 4</a>
+<a href="level-3→4.md">Previous Level: Level 3 → 4</a>
 </p>
 
 # [Bandit Level 5](https://overthewire.org/wargames/bandit/bandit5.html)
@@ -41,7 +41,7 @@ drwxr-xr-x 3 root    root    4096 Aug 15 13:16 ..
 ```
 The `file` command tells us what kind of data a file holds e.g. binaries, PDF, ASCII text, etc.  
 Instead of checking each file one by one, we can use the wildcard `*` that matches zero or more characters in a filename.  
-Applying the techniques learned in [level 2](level-2.md) to correctly reference the file whose name begins with `-`.  
+Applying the techniques learned in [level 1 → 2](level-1→2.md) to correctly reference the file whose name begins with `-`.  
 ```bash
 file ./-*
 ```
@@ -79,5 +79,5 @@ cat ./-file07
 
 
 <p align="center">
-<a href="level-6.md">Next Level → Level 6</a>
+<a href="level-5→6.md">Next Level: Level 5 → 6</a>
 </p>
