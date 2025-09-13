@@ -16,78 +16,76 @@ The goal of this level is to find a file on the **server** with the following pr
 - owned by group bandit6
 - 33 bytes in size
 
-## Theory
+## Steps
+We no longer have the familiar `inhere` directory. We are to search the entire server for this file.  
+Change current directory to the root directory:
+```bash
+cd /
+```
+List all files:
+```bash
+ls -la
+```
+```bash
+bandit6@bandit:/$ ls -la
+total 740
+drwxr-xr-x   31 root root   4096 Sep 11 18:18 .
+drwxr-xr-x   31 root root   4096 Sep 11 18:18 ..
+drwxr-xr-x    2 root root   4096 Aug 15 13:16 behemoth
+lrwxrwxrwx    1 root root      7 Apr 22  2024 bin -> usr/bin
+drwxr-xr-x    2 root root   4096 Feb 26  2024 bin.usr-is-merged
+drwxr-xr-x    5 root root   4096 Jul 31 10:14 boot
+drwxr-xr-x   16 root root   3340 Sep 11 18:18 dev
+drwxr-xr-x    7 root root   4096 Aug 15 13:17 drifter
+drwxr-xr-x  128 root root  12288 Aug 20 16:10 etc
+drwxr-xr-x    3 root root   4096 Aug 15 13:17 formulaone
+drwxr-xr-x  150 root root   4096 Aug 15 13:18 home
+drwxr-xr-x    9 root root   4096 Aug 15 13:17 krypton
+lrwxrwxrwx    1 root root      7 Apr 22  2024 lib -> usr/lib
+lrwxrwxrwx    1 root root      9 Aug 15 13:09 lib32 -> usr/lib32
+lrwxrwxrwx    1 root root      9 Apr 22  2024 lib64 -> usr/lib64
+drwxr-xr-x    2 root root   4096 Apr  8  2024 lib.usr-is-merged
+lrwxrwxrwx    1 root root     10 Aug 15 13:09 libx32 -> usr/libx32
+drwx------    2 root root  16384 Jul 31 10:07 lost+found
+drwxr-xr-x    3 root root   4096 Aug 15 13:17 manpage
+drwxr-xr-x    2 root root   4096 Aug 15 13:18 maze
+drwxr-xr-x    2 root root   4096 Jul 31 10:04 media
+drwxr-xr-x    2 root root   4096 Jul 31 10:04 mnt
+drwxr-xr-x    2 root root   4096 Aug 15 13:18 narnia
+drwxr-xr-x    6 root root   4096 Aug 15 13:11 opt
+dr-xr-xr-x  618 root root      0 Sep 11 18:17 proc
+drwx------    7 root root   4096 Sep  3 08:14 root
+drwxr-xr-x   30 root root    980 Sep 12 09:43 run
+lrwxrwxrwx    1 root root      8 Apr 22  2024 sbin -> usr/sbin
+drwxr-xr-x    2 root root   4096 Mar 31  2024 sbin.usr-is-merged
+drwx------    6 root root   4096 Jul 31 10:15 snap
+drwxr-xr-x    2 root root   4096 Jul 31 10:04 srv
+dr-xr-xr-x   13 root root      0 Sep 11 18:31 sys
+drwxrwx-wt 1820 root root 626688 Sep 13 11:22 tmp
+drwxr-xr-x   14 root root   4096 Aug 15 13:16 usr
+drwxr-xr-x    2 root root   4096 Aug 15 13:18 utumno
+drwxr-xr-x   14 root root   4096 Aug 20 16:10 var
+drwxr-xr-x    2 root root   4096 Aug 15 13:19 vortex
+```
+
 This level introduces the concept of file ownership.
 Each person in Linux is a **user**, and each user has a unique UID(User ID) e.g. root, john, bandit4, etc.
 A **group** is a collection of users, each user belongs to a **primary group** and **secondary groups** e.g. `john` is in group `dev`. Files owned by group `dev` can be shared by all developers.
 Every file has two owners:
 - User owner -> the user who owns the file.
 - Group owner -> the group that owns the file.
-Using `ls -l`:
-```bash
--rw-r--r-- 1 john dev 1200 Sep 13 10:00 notes.txt
-```
-`john` is the user owner.
-`dev` is the group owner.
 
-## Steps
-Change current directory to `inhere`:
+An example from our `ls -la` output:
 ```bash
-cd inhere
+drwxr-xr-x    2 root root   4096 Aug 15 13:16 behemoth
 ```
-List all files:
-```bash
-ls -la
-```
-We can see 20 directories.
-```bash
-bandit5@bandit:~/inhere$ ls -la
-total 88
-drwxr-x--- 22 root bandit5 4096 Aug 15 13:16 .
-drwxr-xr-x  3 root root    4096 Aug 15 13:16 ..
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere00
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere01
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere02
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere03
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere04
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere05
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere06
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere07
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere08
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere09
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere10
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere11
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere12
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere13
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere14
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere15
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere16
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere17
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere18
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 maybehere19
-```
-Each of these directories has a multitude of files.
-Take `maybehere00` for instance:
-```bash
-bandit5@bandit:~/inhere$ ls -la maybehere00  
-total 72
-drwxr-x---  2 root bandit5 4096 Aug 15 13:16 .
-drwxr-x--- 22 root bandit5 4096 Aug 15 13:16 ..
--rwxr-x---  1 root bandit5 1039 Aug 15 13:16 -file1
--rwxr-x---  1 root bandit5  551 Aug 15 13:16 .file1
--rw-r-----  1 root bandit5 9388 Aug 15 13:16 -file2
--rw-r-----  1 root bandit5 7836 Aug 15 13:16 .file2
--rwxr-x---  1 root bandit5 7378 Aug 15 13:16 -file3
--rwxr-x---  1 root bandit5 4802 Aug 15 13:16 .file3
--rwxr-x---  1 root bandit5 6118 Aug 15 13:16 spaces file1
--rw-r-----  1 root bandit5 6850 Aug 15 13:16 spaces file2
--rwxr-x---  1 root bandit5 1915 Aug 15 13:16 spaces file3
-```
-We could brute force print each file one by one until we find the flag but of course this is incredibly inefficient. 
-If only there were a way to search for the file based on properties we were given...
+`root` is the user owner.
+`root` is the group owner.
+
+We are looking for a file that has `bandit7` as user owner, `bandit6` as group owner and has a size of 33 bytes.
 
 The `find` command is used to search for files and directories based on specific criteria.
-It just so happens that find has an option for each of them:
+It just so happens that find has an option for each of our criteria:
 - `-user <username>`, finds files owned by a specific user.
 - `-group <groupname>`, finds files belonging to a specific group.
 - `-size +10M`, finds files greater than 10MB
@@ -95,43 +93,59 @@ It just so happens that find has an option for each of them:
 - `-size 33c`, finds files that are exactly 33 bytes.  
 Putting it all together:
 ```bash
-find . -user bandit7 -group bandit6 -size 33c
+find ./ -user bandit7 -group bandit6 -size 33c
+```
+Running this command gives us a long list that include errors:
+```bash
+bandit6@bandit:/$ find ./ -user bandit7 -group bandit6 -size 33c
+find: ‘./sys/kernel/tracing/osnoise’: Permission denied
+find: ‘./sys/kernel/tracing/hwlat_detector’: Permission denied
+find: ‘./sys/kernel/tracing/instances’: Permission denied
+find: ‘./sys/kernel/tracing/trace_stat’: Permission denied
+find: ‘./sys/kernel/tracing/per_cpu’: Permission denied
+find: ‘./sys/kernel/tracing/options’: Permission denied
+find: ‘./sys/kernel/tracing/rv’: Permission denied
+find: ‘./sys/kernel/debug’: Permission denied
+find: ‘./sys/fs/pstore’: Permission denied
+find: ‘./sys/fs/bpf’: Permission denied
+find: ‘./root’: Permission denied
+find: ‘./boot/lost+found’: Permission denied
+find: ‘./boot/efi’: Permission denied
+find: ‘./run/udisks2’: Permission denied
+find: ‘./run/chrony’: Permission denied
+find: ‘./run/user/11022’: Permission denied
+find: ‘./run/user/8003’: Permission denied
+find: ‘./run/user/12000’: Permission denied
+find: ‘./run/user/11031’: Permission denied
+find: ‘./run/user/11023’: Permission denied
+find: ‘./run/user/11010’: Permission denied
+find: ‘./run/user/11003’: Permission denied
+...
 ```
 
-
+We can use `2>/dev/null` to redirect error messages so they don't show up on the terminal.
+- `2` refers to file descriptor 2, which is the standard error.
+- `>` redirection operator.
+- `/dev/null` is the special "black hole" file that discards anything written to it. I found this particularly cool.
+So lets append this to our command from above to locate the file containing the flag:
 ```bash
-file ./-*
+find ./ -user bandit7 -group bandit6 -size 33c 2>/dev/null
+./var/lib/dpkg/info/bandit7.password
 ```
-Output:
+Read the file containing the flag:
 ```bash
-bandit4@bandit:~/inhere$ file ./*
-./-file00: Non-ISO extended-ASCII text, with no line terminators, with overstriking
-./-file01: data
-./-file02: data
-./-file03: data
-./-file04: data
-./-file05: data
-./-file06: data
-./-file07: ASCII text
-./-file08: data
-./-file09: data
-```
-  
-We can see that file -file07 is the only one of type 'ASCII', which is indeed human readable.  
-Read -file07 and obtain the flag:
-```bash
-cat ./-file07
+cat ./var/lib/dpkg/info/bandit7.password
 ```
 
 ## Flag 
 ```bash
-4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 ```
 
 
 ## Notes
-- The `file` command identifies the type of a file based on its contents, not just its name.
-- The `*` wildcard matches zero or more characters in filenames, useful for pattern matching. 
+- Linux assigns each file a **user owner** and a **group owner** to control who can read, write or execute it.
+- /dev/null discards any data sent to it, acting like a "black hole" for output or errors in this case.
 
 
 
