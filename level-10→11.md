@@ -24,17 +24,17 @@ Since there's only a single line lets print it out:
 bandit10@bandit:~$ cat data.txt       
 VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==
 ```
-Here we are introduced to `base64`, which is a **binary to text encoding scheme** used to represent binary data e.g. images, files, keys, etc... in **ASCII text**.
-This makes it easy to store or transmit over systems that only handle text. Often padded with '=' to make the output a multiple of 4 characters.
+Here we are introduced to `base64`, which is a **binary to text encoding scheme** used to represent binary data e.g. images, files, keys, etc... in **ASCII text**.    
+This makes it easy to store or transmit over systems that only handle text. Often padded with '=' to make the output a multiple of 4 characters.    
 Base64 is named for the 64 characters it uses to represent binary data as text:
 - A-Z (26)
 - a-z (26)
 - 0-9 (10)
-- \+ (1)
-- / (1)
+- '\+' (1)
+- '/' (1)
 Total: 64
 
-So what we are looking at when we `cat` data.txt is the Base-64 encoded version of some text.
+So what we are looking at when we `cat` data.txt is the Base-64 encoded version of some text.    
 We can decode it with the `base64` command with the option `-d` for decode mode.
 ```bash
 bandit10@bandit:~$ base64 -d data.txt                      
