@@ -47,7 +47,7 @@ dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 ```
 
 ## Notes
-- **Encoding**, converts data from one format to another for storage, transmission, or readability; **it does not hide or encrypt data**.
+- **Encoding** converts data from one format to another for storage, transmission, or readability; **it does not hide or encrypt data**.
 - **Base-64** a common encoding scheme that represents binary data as ASCII text.
 - `base64` (linux command) can encode a file to Base64 or decode Base64 text back to its original form.
 
