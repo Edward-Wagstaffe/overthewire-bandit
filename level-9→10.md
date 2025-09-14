@@ -29,7 +29,7 @@ bandit9@bandit:~$ head -n 1 data.txt
               �pA�s�r���е�G��_i�*�`j�dI�/���[W���v-�$.`[۪"���򂀘�>K3Z�9B�p2��7h���F�
 ```
 Since the file contains non-text(binary) data, the terminal tried to display it as text, resulting in weird unintelligible symbols.
-To extract the human-readable text, we can use the `strings` command.
+To extract the human-readable text, we can use the `strings` command.    
 The `strings` command scans a file and prints sequences of printable **ASCII or Unicode chracters.**
 
 Let's use the `strings` command and pipe the output to `grep` several **'='** characters:
