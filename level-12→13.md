@@ -67,7 +67,8 @@ The structure is as such (from the first line of data.txt):
 - The hexadecimal bytes (in pairs): `1f8b 0808 0933 9f68 0203 6461 7461 322e`
 - `.....3.h..data2.` the ASCII representation, with non-printable bytes as a dot `.`
 
-We've been told that the file has been **repeatedly compressed**, this can be seen by the specific **"magic numbers"** or **headers** at the start that identify the file type.
+We've been told that the file has been **repeatedly compressed**, this can be seen by the specific **"magic numbers"** or **headers** at the start that identify the file type.  
+
 For example:
 | File Type  | Header (Hex)        | Notes                         |
 |-----------|-------------------|-------------------------------|
@@ -77,17 +78,171 @@ For example:
 | Tar.gz    | Gzip header + tar | Usually .tar.gz               |
 | 7z        | 37 7A BC AF 27 1C | 7-Zip archives                |
 | XZ        | FD 37 7A 58 5A 00 | XZ compressed files           |
-| RAR       | 52 61 72 21 1A 07 00 | RAR archives              |
+| RAR       | 52 61 72 21 1A 07 00 | RAR archives              |  
 
 
-  
+`00000000: 1f8b 0808 0933 9f68 0203 6461 7461 322e  .....3.h..data2.`  
+We can identify that data.txt begins with `1f 8b` which corresponds to a `.gz` file.
+Therefore, we need to decompress data.txt using `gzip`.
+
+Let's make a temporary directory in /tmp with `mktemp -d`(your dir will be given a different name):
+```bash
+bandit12@bandit:~$ mktemp -d                                              
+/tmp/tmp.TEdr4aK3wp
+```
+Then, let's make a copy of data.txt and place it in our temp directory:
+```bash
+bandit12@bandit:~$ cp data.txt /tmp/tmp.TEdr4aK3wp
+```
+And change directories to that directory:
+```bash
+bandit12@bandit:~$ cd /tmp/tmp.TEdr4aK3wp
+```
+Before decompressing, we should first reconstruct the original file from the hexdump using `xxd` and the reverse option `-r`.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd -r data.txt original_data
+```
+Here, I've named the output file as `original_data` but you could call it whatever you want.
+Let's see what it looks like now using `head`:
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 original_data 
+�       3�hdata2.binH��BZh91AY&SY��������ϯ�����߿���ݾ�����_�o�������:�@����FA�������&@
+����dbhhh�P��        �MMLDF�
+�4��hѣM4�x�2 ���  '����d���*�-�u��g#�Ƌ|b��u8�e�R$��
+                                                   3�!�6�����[<���\A�
+     t�bV�R�7��Z��ؓ&&籏�v����<,�%�̇Y�T6Jg��:�أh��g�Q�+ѲL��03�z��bş�	ï�v��i�hͶm^;���zEqp��L����
+```
+
+We can decompress `-d` files using `gzip` and opt to keep the original compressed file just in case with `-k`.
+If you tried to decompress `original_data`, `gzip` would complain and throw an error: `original_data: unknown suffix -- ignored`.  
+
+To solve this, we need to add the `.gz` suffix, and rename `original_data` to `original_data.gz` with `mv`.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv original_data original_data.gz
+```
+We can now decompress the file, and then use `ls` to check the contents of our tmp dir.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ gzip -dk original_data.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
+data.txt  original_data  original_data.gz
+```
+By using `head` to display the first line in `original_data`, the file produced from the decompression, we can see:
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 original_data
+BZh91AY&SY��������ϯ�����߿���ݾ�����_�o�������:�@����FA�������&@
+����dbhhh�P��                                                 �MMLDF�
+�4��hѣM4�x�2 ���  '����d���*�-�u��g#�Ƌ|b��u8�e�R$��
+                                                   3�!�6�����[<���\A�
+                                                                     t�bV�R�7��Z��ؓ&&籏�v����<,�%�̇Y�T6Jg��:�أh��g�Q�+ѲL��03�z��bş�	ï�v��i�hͶm^;���zEqp��L����
+```
+Since the content is still unreadable, let's create a hexdump of it to analyze its contents.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd original_data hexdump_data
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head hexdump_data                                                             
+00000000: 425a 6839 3141 5926 5359 be9d 9d96 0000  BZh91AY&SY......
+00000010: 1fff fffe 7ffb cfaf 7f9e fff7 eeff dfbf  ................
+00000020: f7fe f7dd be9d b7bf 9f9f 5fca 6fff fed6  .........._.o...
+00000030: fbfe ffb0 013a b304 0340 d000 0000 d001  .....:...@......
+00000040: a003 d400 0003 4641 a190 0000 0019 0001  ......FA........
+00000050: 9006 8681 91a3 2613 400c 8c4d 0f4d 4c44  ......&.@..M.MLD
+00000060: 0346 8d0d 1a00 01a6 8680 0001 a064 6268  .F...........dbh
+00000070: 6868 0000 068f 5000 d01a 069a 0cd4 068c  hh....P.........
+00000080: 8018 9a68 3464 d006 4d00 003a 681a 34d0  ...h4d..M..:h.4.
+00000090: 0d00 01a1 a191 a000 0003 234d 0323 4190  ..........#M.#A.
+```
+From the first line:
+`00000000: 425a 6839 3141 5926 5359 be9d 9d96 0000  BZh91AY&SY......`
+Refering to the table above, we can see that the header here corresponds to 
+a file signature of type `Bzip2`, as it starts with `425a 68`.  
+
+With `original_data` still in its raw form, we can append the `.bz2` suffix, decompress it using `bzip2`, and then display the resulting file.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv original_data original_data.bz2
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
+data.txt  hexdump_data  original_data.bz2  original_data.gz                     bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ bzip2 -dk original_data.bz2        
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
+data.txt  hexdump_data  original_data  original_data.bz2  original_data.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 original_data
+%	�3�/bLa4.bin��OH�q��8c�FH��y�w�������<�2�(��:�.%�x��
+              �zH���<�I+�~.��s�F
+                                ��״F���Q
+```
+Since the content is still unreadable, let's create a hexdump of it to analyze its contents.  
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd original_data hexdump_data2         bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head hexdump_data2 
+00000000: 1f8b 0808 0933 9f68 0203 6461 7461 342e  .....3.h..data4.
+00000010: 6269 6e00 edd1 4f48 9371 18c0 f19f 3863  bin...OH.q....8c
+00000020: 9717 4648 d81c eea5 a5c3 0279 df77 efd6  ..FH.......y.w..
+00000030: 1f08 d61f 8684 8694 18b3 3cbc 32a4 1528  ..........<.2..(
+00000040: ea1b 6811 db3a ac2e 0325 a578 a193 170d  ..h..:...%.x....
+00000050: 2509 8a04 0f33 e8ac d382 082f 624c 0c86  %....3...../bL..
+00000060: 7a48 87a2 b53c 16e4 492b f87e 2ecf 03cf  zH...<..I+.~....
+00000070: 73fb 460c d3f0 d7b4 46db c5fe 510a 02ba  s.F.....F...Q...
+00000080: be3b 0b7e 999a fe73 57fd 8a7e 2ae0 5375  .;.~...sW..~*.Su
+00000090: 5515 8aaa 6aba 2664 451c 80bb dda6 d125  U...j.&dE......%
+```
+At this stage, it’s the same process again—we recognize the `gzip` header from before.  
+Let's append the `.gz` suffix, decompress it using `gzip`, and then display the resulting file:
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv original_data original_data2.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ gzip -dk original_data2.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat original_data2             data5.bin0000644000000000000000000002400015047631411011242 0ustar  rootrootdata6.bin0000644000000000000000000000033615047631411011251 0ustar  ro��V�+�ц��2ԶZ��"2�:%'�t*T���0Y�����i�2'����JR�Y  �ܑN$Wx�
+```
+We can actually see what looks like two file names in there, `data5.bin` and `data6.bin`. This is a **t**ape **ar**chive `tar`.
+
+Let's append the `.tar` suffix, extract it using `tar`, and then display the resulting file:
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv original_data2 original_data2.tar
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ tar -xf original_data2.tar
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head data5.bin
+data6.bin0000644000000000000000000000033615047631411011251 0ustar  rootrootBZh91AY&SYq]��V�+�ц��2ԶZ��"2�:%'�t*T���0Y�����i�2'����JR�Y  �ܑN$Wx
+```
+Looks like we have to do it again.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ tar -xf data5.bin          
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
+data5.bin  data.txt      hexdump_data2      original_data2.tar  original_data.gz
+data6.bin  hexdump_data  original_data2.gz  original_data.bz2
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data6.bin                                 
+��V�+�ц��2ԶZ��"2�:%'�t*T���0Y�����i�2'����JR�Y  �ܑN$Wx�
+```
+Because the content remains unreadable, we’ll continue our approach, using hexdumps as needed for analysis.
+```bash
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd data6.bin data6hexdump
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 data6hexdump                     
+00000000: 425a 6839 3141 5926 5359 715d fde3 0000  BZh91AY&SYq]....
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv data6.bin data6.bz2
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ bzip2 -dk data6.bz2 
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
+data5.bin  data6hexdump  hexdump_data2       original_data.bz2
+data6      data.txt      original_data2.gz   original_data.gz
+data6.bz2  hexdump_data  original_data2.tar
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data6
+data8.bin0000644000000000000000000000011715047631411011250 0ustar  rootroot�     3�hdata9.bin
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ tar -xf data6.tar
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
+data5.bin  data6hexdump  data8.bin  hexdump_data   original_data2.gz   original_data.bz2
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data8.bin 
+�       3�hdata9.bin
+�.6*K	q)w��>�2A1
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd data8.bin
+00000000: 1f8b 0808 0933 9f68 0203 6461 7461 392e  .....3.h..data9.
+00000010: 6269 6e00 0bc9 4855 2848 2c2e 2ecf 2f4a  bin...HU(H,.../J
+00000020: 51c8 2c56 70f3 374d 2977 2b4e 3648 4e4a  Q.,Vp.7M)w+N6HNJ
+00000030: f4cc f430 c8b0 f032 4a0d cd2e 362a 4b09  ...0...2J...6*K.
+00000040: 7129 77cc e302 003e de32 4131 0000 00    q)w....>.2A1...
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv data8.bin data8.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ gzip -dk data8.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data8
+The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+```
 
 
 
 
 ## Flag 
 ```bash
-7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ```
 
 ## Notes
