@@ -81,7 +81,7 @@ For example:
 | RAR       | 52 61 72 21 1A 07 00 | RAR archives              |  
 
 
-`00000000: 1f8b 0808 0933 9f68 0203 6461 7461 322e  .....3.h..data2.`  
+From the first line: `00000000: 1f8b 0808 0933 9f68 0203 6461 7461 322e  .....3.h..data2.`  
 We can identify that data.txt begins with `1f 8b` which corresponds to a `.gz` file.
 Therefore, we need to decompress data.txt using `gzip`.
 
