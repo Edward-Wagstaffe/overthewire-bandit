@@ -34,7 +34,7 @@ The `strings` command scans a file and prints sequences of printable **ASCII or 
 
 Let's use the `strings` command and pipe the output to `grep` several **'='** characters:
 ```bash
-strings data.txt | grep "===="
+bandit9@bandit:~$ strings data.txt | grep "===="
 ========== theg
 ========== password
 ========== is
