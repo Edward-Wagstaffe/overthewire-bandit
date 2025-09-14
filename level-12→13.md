@@ -246,6 +246,9 @@ FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ```
 
 ## Notes
+- `xxd` converts a file to a hexdump allowing for inspection of binary data and can reverse hexdump `-r` back into the original binary data.
+- **Magic numbers** are specific byte sequences at the start of a file that identify its type or format e.g. `1F 8B` for `gzip` and `42 5A 68` for `bzip2`.
+- `tar`: A utility that bundles multiple files into a single archive.
 
 
 
