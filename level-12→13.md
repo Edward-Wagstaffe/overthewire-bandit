@@ -217,16 +217,19 @@ bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd data6.bin data6hexdump
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 data6hexdump                     
 00000000: 425a 6839 3141 5926 5359 715d fde3 0000  BZh91AY&SYq]....
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv data6.bin data6.bz2
-bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ bzip2 -dk data6.bz2 
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ bzip2 -dk data6.bz2
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
 data5.bin  data6hexdump  hexdump_data2       original_data.bz2
 data6      data.txt      original_data2.gz   original_data.gz
 data6.bz2  hexdump_data  original_data2.tar
+
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data6
 data8.bin0000644000000000000000000000011715047631411011250 0ustar  rootroot�     3�hdata9.bin
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv data6 data6.tar
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ tar -xf data6.tar
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
 data5.bin  data6hexdump  data8.bin  hexdump_data   original_data2.gz   original_data.bz2
+
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data8.bin
 �       3�hdata9.bin
 �.6*K	q)w��>�2A1
@@ -238,11 +241,10 @@ bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd data8.bin
 00000040: 7129 77cc e302 003e de32 4131 0000 00    q)w....>.2A1...
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv data8.bin data8.gz
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ gzip -dk data8.gz
+
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data8
 The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 ```
-
-
 
 
 ## Flag 
