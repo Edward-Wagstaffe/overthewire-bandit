@@ -30,7 +30,7 @@ Base64 is named for the 64 characters it uses to represent binary data as text:
 - A-Z (26)
 - a-z (26)
 - 0-9 (10)
-- + (1)
+- \+ (1)
 - / (1)
 Total: 64
 
