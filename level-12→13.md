@@ -159,7 +159,8 @@ With `original_data` still in its raw form, we can append the `.bz2` suffix, dec
 ```bash
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv original_data original_data.bz2
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
-data.txt  hexdump_data  original_data.bz2  original_data.gz                     bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ bzip2 -dk original_data.bz2        
+data.txt  hexdump_data  original_data.bz2  original_data.gz
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ bzip2 -dk original_data.bz2        
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
 data.txt  hexdump_data  original_data  original_data.bz2  original_data.gz
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 original_data
@@ -169,7 +170,8 @@ bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head -n 1 original_data
 ```
 Since the content is still unreadable, let's create a hexdump of it to analyze its contents.  
 ```bash
-bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd original_data hexdump_data2         bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head hexdump_data2 
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ xxd original_data hexdump_data2
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ head hexdump_data2 
 00000000: 1f8b 0808 0933 9f68 0203 6461 7461 342e  .....3.h..data4.
 00000010: 6269 6e00 edd1 4f48 9371 18c0 f19f 3863  bin...OH.q....8c
 00000020: 9717 4648 d81c eea5 a5c3 0279 df77 efd6  ..FH.......y.w..
