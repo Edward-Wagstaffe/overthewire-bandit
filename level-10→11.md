@@ -25,7 +25,9 @@ bandit10@bandit:~$ cat data.txt
 VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg==
 ```
 Here we are introduced to `base64`, which is a **binary to text encoding scheme** used to represent binary data e.g. images, files, keys, etc... in **ASCII text**.    
+
 This makes it easy to store or transmit over systems that only handle text. Often padded with '=' to make the output a multiple of 4 characters.    
+
 Base64 is named for the 64 characters it uses to represent binary data as text:
 - A-Z (26)
 - a-z (26)
