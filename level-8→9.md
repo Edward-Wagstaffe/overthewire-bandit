@@ -11,7 +11,7 @@
 ---
 
 ## Task 
-The goal of this level is to find the flag in **data.txt** next to the word **millionth**.and is the only line of text that **occurs only once.**
+The goal of this level is to find the flag in **data.txt** and is the only line of text that **occurs only once.**
 
 ## Steps
 Let's see how many lines data.txt has using the `wc` command
