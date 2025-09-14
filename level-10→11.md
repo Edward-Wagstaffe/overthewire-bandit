@@ -32,7 +32,6 @@ Base64 is named for the 64 characters it uses to represent binary data as text:
 - 0-9 (10)
 - '\+' (1)
 - '/' (1)  
-Total: 64
 
 So what we are looking at when we `cat` data.txt is the Base-64 encoded version of some text.    
 We can decode it with the `base64` command with the option `-d` for decode mode.
