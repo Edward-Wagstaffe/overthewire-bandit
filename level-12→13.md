@@ -205,7 +205,7 @@ bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ tar -xf data5.bin
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ ls
 data5.bin  data.txt      hexdump_data2      original_data2.tar  original_data.gz
 data6.bin  hexdump_data  original_data2.gz  original_data.bz2
-bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data6.bin                                 
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat data6.bin                                
 ��V�+�ц��2ԶZ��"2�:%'�t*T���0Y�����i�2'����JR�Y  �ܑN$Wx�
 ```
 Because the content remains unreadable, we’ll continue our approach, using hexdumps as needed for analysis.
