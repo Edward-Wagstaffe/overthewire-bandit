@@ -25,6 +25,7 @@ It is a simple encryption method used historically by Julius Caesar, and is a ty
 In this case, 13 characters, which is actually a very common shift and has its own name **ROT13**.  
 
 We can use the `tr` command to **translate or delete** characters from input text.
+
 An example of translation using ranges like a-z and A-Z:
 ```bash
 echo "abc" | tr 'a-z' 'A-Z'
