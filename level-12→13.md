@@ -188,7 +188,10 @@ Let's append the `.gz` suffix, decompress it using `gzip`, and then display the 
 ```bash
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ mv original_data original_data2.gz
 bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ gzip -dk original_data2.gz
-bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat original_data2             data5.bin0000644000000000000000000002400015047631411011242 0ustar  rootrootdata6.bin0000644000000000000000000000033615047631411011251 0ustar  ro��V�+�ц��2ԶZ��"2�:%'�t*T���0Y�����i�2'����JR�Y  �ܑN$Wx�
+bandit12@bandit:/tmp/tmp.TEdr4aK3wp$ cat original_data2
+data5.bin0000644000000000000000000002400015047631411011242 0ustar
+rootrootdata6.bin0000644000000000000000000000033615047631411011251 0ustar  ro��V�+�ц��2ԶZ��"2�
+%'�t*T���0Y�����i�2'����JR�Y  �ܑN$Wx�
 ```
 We can actually see what looks like two file names in there, `data5.bin` and `data6.bin`. This is a **t**ape **ar**chive `tar`.
 
