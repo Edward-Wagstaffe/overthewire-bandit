@@ -26,5 +26,10 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 5 → 6](level-5→6.md) - Using `find`, piping and `grep`
 - [Level 6 → 7](level-6→7.md) - File ownership and the black hole
 - [Level 7 → 8](level-7→8.md) - Finding a string with `grep`
-- [Level 8 → 9](level-8→9.md) - TODO
+- [Level 8 → 9](level-8→9.md) - Using `sort` and `uniq`
+- [Level 9 → 10](level-9→10.md) - 
+- [Level 10 → 11](level-10→11.md) -
+- [Level 11 → 12](level-11→12.md) -
+- [Level 12 → 13](level-12→13.md) -
+- [Level 13 → 14](level-13→14.md) -
 
