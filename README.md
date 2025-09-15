@@ -31,5 +31,6 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 10 → 11](level-10→11.md) - Decoding base64
 - [Level 11 → 12](level-11→12.md) - Ceasar cipher
 - [Level 12 → 13](level-12→13.md) - Using hexdumps to identify magic numbers
-- [Level 13 → 14](level-13→14.md) - TODO
+- [Level 13 → 14](level-13→14.md) - `ssh` with private keys & file permissions
+- [Level 14 → 15](level-14→15.md) - TODO
 
