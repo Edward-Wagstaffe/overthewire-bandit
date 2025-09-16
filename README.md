@@ -32,5 +32,8 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 11 → 12](level-11→12.md) - Ceasar cipher
 - [Level 12 → 13](level-12→13.md) - Using hexdumps to identify magic numbers
 - [Level 13 → 14](level-13→14.md) - `ssh` with private keys & file permissions
-- [Level 14 → 15](level-14→15.md) - TODO
+- [Level 14 → 15](level-14→15.md) - Using `nc` (netcat)
+- [Level 15 → 16](level-15→16.md) - Using `openssl`
+- [Level 16 → 17](level-16→17.md) - Port scanning with `nmap`
+- [Level 17 → 18](level-17→18.md) - TODO
 
