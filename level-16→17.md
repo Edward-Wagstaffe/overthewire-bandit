@@ -11,10 +11,75 @@
 ---
 
 ## Task 
-The goal of this level is to send the current level’s password to **localhost** on **port 30001** over an **SSL/TLS-encrypted connection**.
+The goal of this level is to send the current level’s password to **localhost** on a port between **31000-32000**, more specifically, a port that has a server listening on them and uses SSL/TLS.
 
 
 ## Steps
+First we should scan the port ranges using `nmap`(network mapper).  
+`nmap` probes IP ranges and ports to determine, what services and versions are running, it can also do basic OS/service fingerprinting.
+
+Let's use the following nmap command (might take awhile to finish):
+```bash
+bandit16@bandit:~$ nmap -sV 127.0.0.1 -p 31000-32000
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-09-17 03:32 UTC
+Stats: 0:01:57 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 80.00% done; ETC: 03:34 (0:00:29 remaining)
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00021s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT      STATE SERVICE     VERSION
+31046/tcp open  echo
+31518/tcp open  ssl/echo
+31691/tcp open  echo
+31790/tcp open  ssl/unknown
+31960/tcp open  echo
+Nmap done: 1 IP address (1 host up) scanned in 163.09 seconds
+```
+There are a few open ports, but we only need to focus on those offering SSL/TLS. That narrows it down to ports **31518** and **31790**.  
+Port **31518** is running the echo service, which simply returns whatever data is sent to it.  
+Port **31790** is running an unknown service, making it a more interesting target to investigate.  
+
+Let's try connect to it as we've done in [level 15 → 16](level-15→16.md), and submit the password:
+```bash
+bandit16@bandit:~$ openssl s_client -connect localhost:31790              
+CONNECTED(00000003)
+...
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+KEYUPDATE
+```
+We are faced with this **KEYUPDATE** message, which we are hinted to look at the "CONNECTED COMMANDS" section in the `openssl` manpage.  
+
+```text
+CONNECTED COMMANDS¶
+
+If a connection is established with an SSL server then any data received from the server is
+displayed and any key presses will be sent to the server. If end of file is reached then the
+connection will be closed down. When used interactively (which means neither -quiet nor
+-ign_eof have been given), then certain commands are also recognized which perform special
+operations. These commands are a letter which must appear at the start of a line.
+They are listed below.
+
+    Q
+
+    End the current SSL connection and exit.
+
+    R
+
+    Renegotiate the SSL session (TLSv1.2 and below only).
+
+    k
+
+    Send a key update message to the server (TLSv1.3 only)
+
+    K
+
+    Send a key update message to the server and request one back (TLSv1.3 only)
+```
+
+Since the password to the current level so happens to begin with a `k`, the SSL server thinks we are issuing a special **KEYUPDATE** command. To handle this, we should use the `-quiet` option which will omit a lot of the details about the SSL handshake, certificates and session info.
+It only shows the actual input/output stream from the connection.  
+
+Let's to connect again with `-quiet` and submit the password:
 ```bash
 bandit16@bandit:~$ openssl s_client -connect localhost:31790 -quiet
 ...
@@ -51,10 +116,11 @@ vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
 
 ## Flag
 ```bash
-
+n/a: RSA PRIVATE KEY given.
 ```
-## Notes
 
+## Notes
+`nmap` is a network scanning tool used to discover hosts, open ports and running services on a network. For this particular level we leveraged the `-sV` option which tells nmap to perform service version detection, meaning it tries to determine what software and version is running on each open port, and `-p` which lets us specify which port(s) to scan.
 
 
 <p align="center">
