@@ -33,7 +33,9 @@ x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
 ```
 
 ## Notes
-`diff` compares two files line by line and shows the differences. It marks changes with codes like `42c42`, where the numbers are line numbers from each file and the letter shows the type of change (`a` = add, `d` = delete, `c` = change). Lines from the first file are shown with `<`, and lines from the second file are shown with `>`.
+- `diff` compares two files line by line and shows the differences.
+- It marks changes with codes like `42c42`, where the numbers are line numbers from each file and the letter shows the type of change (`a` = add, `d` = delete, `c` = change).
+- Lines from the first file are shown with `<`, and lines from the second file are shown with `>`.
 
 
 <p align="center">
