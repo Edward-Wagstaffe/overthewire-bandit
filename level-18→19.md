@@ -2,11 +2,11 @@
 <a href="level-17→18.md">Previous Level: Level 17 → 18</a>
 </p>
 
-# [Bandit Level 18 → 19](https://overthewire.org/wargames/bandit/bandit18.html)
+# [Bandit Level 18 → 19](https://overthewire.org/wargames/bandit/bandit19.html)
 
 ## Login Info
 - **SSH:** `ssh bandit.labs.overthewire.org -p 2220 -l bandit18`
-- **Password:** `kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx`
+- **Password:** `x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO`
 
 ---
 
