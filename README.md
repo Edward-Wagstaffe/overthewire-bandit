@@ -35,5 +35,9 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 14 → 15](level-14→15.md) - Using `nc` (netcat)
 - [Level 15 → 16](level-15→16.md) - Using `openssl`
 - [Level 16 → 17](level-16→17.md) - Port scanning with `nmap`
-- [Level 17 → 18](level-17→18.md) - TODO
+- [Level 17 → 18](level-17→18.md) - Using `diff` 
+- [Level 18 → 19](level-18→19.md) - `ssh` login with a modified .bashrc
+- [Level 19 → 20](level-19→20.md) - How to run binaries
+- [Level 20 → 21](level-20→21.md) - Creating a simple server with `nc`
+
 
