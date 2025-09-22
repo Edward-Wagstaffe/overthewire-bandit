@@ -3,13 +3,13 @@
 This repository contains my writeups for the OverTheWire Bandit wargame.  
 Bandit is a beginner-friendly CTF designed to teach practical Linux skills, remote server access, and basic problem-solving techniques in a hands-on environment.
 
-As a cybersecurity student, this marks the start of my CTF journey and my effort to build foundational skills. Through these challenges, I am learning to:
+As a cybersecurity student, this marks the start of my CTF journey and my effort to build foundational skills. Through these challenges, I am learning:
 
-- Navigate the Linux command line efficiently
-- Connect to and explore remote servers via SSH
-- Handle files, directories, and hidden content
-- Understand special characters and paths
-- Develop a systematic approach to problem-solving and flag collection
+- Linux Command Line Basics: Navigation (`cd`, `ls`), file viewing (`cat`, `less`), file manipulation (`cp`, `mv`, `rm`), and understanding file permissions.
+- File Permissions and Ownership: Understanding read, write, execute permissions, and how `chmod`, `chown`, and `ls -l` work.
+- Text Processing and Searching: Using `grep`, `find`, `diff`, `strings`, and redirection/pipe operators to locate and analyze content.
+- Networking Fundamentals: Basic use of `ssh`, `netcat`, and understanding ports and services.
+- Problem-Solving & Security Awareness: Developing logical thinking, recognizing common security pitfalls (like hidden files, insecure permissions, and file content exposure).
 
 Each level includes concise steps, commands, and notes reflecting what I learned along the way.
 
