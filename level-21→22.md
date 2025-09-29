@@ -13,8 +13,9 @@
 ## Task 
 The goal of this level is to look in **/etc/cron.d/** for the configuration of **cron** and see what command is being executed.
 
-Let's change directories to /etc/cron.d/ and see whats inside:
+
 ## Steps
+Let's change directories to /etc/cron.d/ and see whats inside:
 ```bash
 bandit21@bandit:~$ cd /etc/cron.d/
 bandit21@bandit:/etc/cron.d$ ls
