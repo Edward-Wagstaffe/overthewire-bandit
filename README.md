@@ -39,5 +39,7 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 18 → 19](level-18→19.md) - `ssh` login with a modified .bashrc
 - [Level 19 → 20](level-19→20.md) - How to run binaries
 - [Level 20 → 21](level-20→21.md) - Creating a simple server with `nc`
+- [Level 21 → 22](level-21→22.md) - Cronjobs
+- [Level 22 → 23](level-20→21.md) - More cronjobs and bash scripting syntax
 
 
