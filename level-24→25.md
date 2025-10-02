@@ -30,7 +30,7 @@ bandit24@bandit:~$ mktemp -d
 bandit24@bandit:~$ cd /tmp/tmp.5Ck1rNgArW
 bandit24@bandit:/tmp/tmp.5Ck1rNgArW$ 
 ```
-Let's use a bash script to create all possible permutations of the password and pincode, after we're done we can pipe that file into `nc` and filter with `grep` with the `-v` option which inverts the match since we know an invalid entry is met with `Wrong! ...`.
+Let's use a bash script to create all possible permutations of the password and pincode, after we're done we can pipe that file into `nc` and filter with `grep` with the `-v` option which inverts the match since we know an invalid entry is met with **'Wrong! ...'**
 ```bash
 bandit24@bandit:/tmp/tmp.5Ck1rNgArW$ nano bruteforce.sh
 ```
@@ -53,7 +53,7 @@ total 4
 -rwxrwxr-x 1 bandit24 bandit24 182 Oct  2 08:48 bruteforce.sh
 bandit24@bandit:/tmp/tmp.5Ck1rNgArW$ ./bruteforce.sh 
 ```
-After running it, let's check our directory for password.txt:
+After running it, let's check our directory for password.txt and print it:
 ```bash
 bandit24@bandit:/tmp/tmp.5Ck1rNgArW$ ls
 bruteforce.sh  password.txt  permutations.txt
