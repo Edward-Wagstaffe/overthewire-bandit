@@ -40,6 +40,9 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 19 → 20](level-19→20.md) - How to run binaries
 - [Level 20 → 21](level-20→21.md) - Creating a simple server with `nc`
 - [Level 21 → 22](level-21→22.md) - Cronjobs
-- [Level 22 → 23](level-20→21.md) - More cronjobs and bash scripting syntax
+- [Level 22 → 23](level-22→23.md) - More cronjobs and reading bash scripts
+- [Level 23 → 24](level-23→24.md) - Even more cronjobs and writing a bash script
+- [Level 24 → 25](level-24→25.md) - More bash scripting and netcat
+- [Level 25 → 26](level-25→26.md) - `/etc/passwd`, `more` and vim.
 
 
