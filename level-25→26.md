@@ -70,7 +70,7 @@ What we see here is a script that is executed when we log in to bandit26, more s
 
 `more` is a linux command that lets us view text files one screen at a time. When a file is too long to fit on one screen, instead of flooding the terminal it pauses after each page.
 Now when we logged into bandit26 with the private key we never got to see this as our terminal size was large enough to accomodate the text.
-If we make our terminal window really small before we log in to bandit26, we should be able to see the interactive mode of `more`.
+If we **make our terminal window really small** before we log in to bandit26, we should be able to see the interactive mode of `more`.
 From there we can use `v` to go into vim (text editor) and enter **command-line mode**  by typing `:` followed by our command.
 ```bash
 ❯ ssh -i sshkey25.private bandit.labs.overthewire.org -p 2220 -l bandit26
@@ -87,7 +87,7 @@ _ \ / /
 --More--(50%)
 ```
 After typing `v` to enter vim, you can resize your terminal back to your preferred size.  
-`:shell` command in vim should give us a shell, however it will use the user's default shell. So what we need to do is change the default shell to something more familiar like `/bin/bash`:
+`:shell` command in vim should give us a shell, however it will use the user's default shell. So what we need to do is change the default shell to something more familiar like `/bin/bash`.
 We can do that with the `:set` command:
 ```bash
   _                     _ _ _   ___   __
