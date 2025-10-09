@@ -20,7 +20,7 @@ bandit27@bandit:~$ mktemp -d
 /tmp/tmp.IIbyjgEymm
 bandit27@bandit:~$ cd /tmp/tmp.IIbyjgEymm
 ```
-From here we can clone the repo:
+From here we can clone the repo with `git clone`:
 ```bash
 bandit27@bandit:/tmp/tmp.IIbyjgEymm$ git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo 
 Cloning into 'repo'...
