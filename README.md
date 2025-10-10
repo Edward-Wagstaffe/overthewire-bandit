@@ -44,5 +44,10 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 23 → 24](level-23→24.md) - Even more cronjobs and writing a bash script
 - [Level 24 → 25](level-24→25.md) - More bash scripting and netcat
 - [Level 25 → 26](level-25→26.md) - `/etc/passwd`, `more` and vim.
+- [Level 26 → 27](level-26→27.md) - continuation of level 25 → 26.
+- [Level 27 → 28](level-27→28.md) - git basics
+- [Level 28 → 29](level-28→29.md) - more git
+
+
 
 
