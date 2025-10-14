@@ -46,7 +46,7 @@ For more information, visit [OverTheWire – Bandit](https://overthewire.org/war
 - [Level 25 → 26](level-25→26.md) - `/etc/passwd`, `more` and vim.
 - [Level 26 → 27](level-26→27.md) - continuation of level 25 → 26.
 - [Level 27 → 28](level-27→28.md) - git basics
-- [Level 28 → 29](level-28→29.md) - more git
+- [Level 28 → 29](level-28→29.md) - git logs
 
 
 
